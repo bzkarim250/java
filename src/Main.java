@@ -1,13 +1,22 @@
-public class Main {
-    public static void main(String[] args) {
-        String message=greetUser("Abdoulkalim","Bazambanza");
-        System.out.println(message);
-        Addition addobj=new Addition();
-        int sum=addobj.sum(3,5);
-        System.out.println("the sum is "+sum);
-    }
-    public static String greetUser(String firstName,String lastName){
+import java.util.Scanner;
 
-        return "hello "+firstName+" "+lastName;
+public class Main {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        var employee=new Employee();
+
+        while(true) {
+            System.out.println("Base Salary:");
+            employee.setBaseSalary(sc.nextInt());
+            System.out.println("Hourly Rate:");
+            employee.setHourlyRate(sc.nextInt());
+            System.out.println("Extra Hours:");
+            if(employee.getBaseSalary()>0&&employee.getHourlyRate()>0)
+                break;
+            System.out.println("Enter valid inputs");
+        }
+
+        int wage=employee.calculateWage(3);
+        System.out.println("wage:"+wage);
     }
 }
